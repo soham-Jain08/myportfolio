@@ -43,7 +43,7 @@ INSTALLED_APPS = [
 
 # settings.py
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'your_app/static')]  # optional
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'soham/static')]  # optional
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MIDDLEWARE = [
