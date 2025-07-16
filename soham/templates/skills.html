@@ -1,0 +1,319 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Soham | Skills</title>
+  <style>
+    :root {
+  --bg-dark: #0f0f1f;
+  --text-color: #fff;
+  --accent: #8b5cf6;
+  --glass: rgba(255, 255, 255, 0.08);
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg-dark);
+  color: var(--text-color);
+  overflow-x: hidden;
+}
+
+.blob {
+  position: fixed;
+  top: -10%;
+  left: -10%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, #8b5cf6, #6366f1);
+  filter: blur(200px);
+  z-index: -1;
+  animation: blobMove 20s infinite alternate ease-in-out;
+}
+
+@keyframes blobMove {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(50vw, 50vh); }
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--glass);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #ffffff22;
+}
+
+.logo {
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+nav a {
+  color: var(--text-color);
+  margin-left: 1.5rem;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+nav a:hover {
+  color: var(--accent);
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+}
+
+.hero-content span {
+  color: var(--accent);
+}
+
+.btn-glow {
+  background: var(--accent);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  margin-top: 1.5rem;
+  display: inline-block;
+  text-decoration: none;
+  box-shadow: 0 0 15px var(--accent);
+  transition: transform 0.3s;
+}
+
+.btn-glow:hover {
+  transform: scale(1.05);
+}
+
+.section {
+  padding: 1rem 2rem;
+  max-width: 1000px;
+  margin: auto;
+  text-align: center;
+}
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.skills-container span {
+  background: #1f1f2e;
+  padding: 0.6rem 1.2rem;
+  border-radius: 12px;
+}
+
+.project-cards {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  margin-top: 2rem;
+}
+
+.card {
+  background: var(--glass);
+  backdrop-filter: blur(15px);
+  border: 1px solid #ffffff22;
+  border-radius: 20px;
+  padding: 2rem;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+}
+
+.badge-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  justify-content: center;
+  margin-top: 1rem;
+  max-width: 1000px;
+}
+
+.badge-card {
+  background: var(--glass);
+  backdrop-filter: blur(15px);
+  border: 1px solid #ffffff22;
+  border-radius: 16px;
+  padding: 1rem;
+  width: 200px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.badge-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 15px rgba(139, 92, 246, 0.3);
+}
+
+.badge-card img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 0.5rem;
+}
+
+.badge-card h4 {
+  margin: 0.5rem 0 0.3rem;
+  font-size: 1rem;
+  color: #ccc;
+}
+
+.badge-card p {
+  font-size: 0.85rem;
+  color: #ccc;
+}
+.ribbon {
+  position: absolute;
+  top: 8px;
+  right: -20px;
+  width: 80px;
+  padding: 2px 0;
+  background: #8b5cf6;
+  color: white;
+  text-align: center;
+  font-size: 0.7rem;
+  font-weight: 500;
+  transform: rotate(45deg);
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  z-index: 1;
+}
+
+.footer {
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+  </style>
+  <script>
+    console.log("🚀 Portfolio Loaded");
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Floating Background Blob -->
+  <div class="blob"></div>
+
+<header class="navbar glass">
+    <div class="logo">⚡ Soham.Kholapure</div>
+    <nav>
+      <a href="{% url 'home' %}">Home</a>
+      <a href="{% url 'skills' %}">Skills</a>
+      <a href="{% url 'certifications' %}">Certifications</a>
+      <a href="{% url 'projects' %}">Projects</a>
+      <a href="{% url 'contact' %}">Contact</a>
+    </nav>
+</header>
+
+  <section class="section skills" id="skills">
+    <h2>💡 Skills</h2>
+    <div class="skills-container">
+      <span> Frontend: HTML, CSS, JavaScript, Bootstrap, Tailwind CSS</span>
+      <br><span>Backend: Python, Django, Flask</span>
+      <br><span> Database: SQLite, PostgreSQL</span>
+      <br><span>Design & UI: Figma, UI/UX Principles</span>
+      <br><span>Tools & Platforms: Visual Studio Code, GitHub</span>
+      <br><span> Cybersecurity Fundamentals: Threat Management, Risk Assessment, Network Security, Digital Forensics</span>
+      <br><span>Soft Skills: Problem-solving, Team Collaboration, Communication</span>
+    </div>
+  </section>
+
+  <section class="section projects" id="projects">
+    <h2 style="margin-top: 2rem;">🏅 Badges & Certifications</h2>
+<div class="badge-cards">
+  <div class="badge-card">
+    <img src="{% static 'media/m1.png' %}" alt="LeetCode Badge">
+    <h4>Clean, transform, and load data in Power BI</h4>
+    <p>Microsoft Learn</p>
+  </div>
+    <div class="badge-card">
+    <img src="{% static 'media/m2.png' %}" alt="LeetCode Badge">
+    <h4>Get data in Power BI</h4>
+    <p>Microsoft Learn</p>
+  </div>
+  <div class="badge-card">
+    <img src="{% static 'media/m3.png' %}" alt="Cisco Course">
+    <h4>Get started building with Power BI</h4>
+    <p>Microsoft Learn</p>
+  </div>
+    <div class="badge-card">
+    <img src="{% static 'media/m4.png' %}" alt="Cisco Course">
+    <h4>Discover data analysis</h4>
+    <p>Microsoft Learn</p>
+  </div>
+    <div class="badge-card">
+    <img src="{% static 'media/bna_threat.png' %}" alt="LeetCode Badge">
+    <h4>Cyber Threat Management</h4>
+    <p>Cisco Networking Academy</p>
+  </div>
+    <div class="badge-card">
+    <img src="{% static 'media/a1.png' %}" alt="LeetCode Badge">
+    <h4>Incident Response</h4>
+    <p>Cisco Networking Academy</p>
+  </div>
+    <div class="badge-card">
+    <img src="{% static 'media/a2.png' %}" alt="LeetCode Badge">
+    <h4>Vulnerability Assessment and Risk Management</h4>
+    <p>Cisco Networking Academy</p>
+  </div>
+    <div class="badge-card">
+    <img src="{% static 'media/a3.png' %}" alt="LeetCode Badge">
+    <h4>Getting Started with Cisco Packet Tracer</h4>
+    <p>Cisco Networking Academy</p>
+  </div>
+    <div class="badge-card">
+    <img src="{% static 'media/bna_intro.png' %}" alt="LeetCode Badge">
+    <h4>Introduction to Cybersecurity</h4>
+    <p>Cisco Networking Academy</p>
+  </div>
+    <div class="badge-card">
+    <img src="{% static 'media/a5.png' %}" alt="LeetCode Badge">
+    <h4>Resource Specialist</h4>
+    <p>Cisco Networking Academy</p>
+  </div>
+    <div class="badge-card">
+    <img src="{% static 'media/a6.png' %}" alt="LeetCode Badge">
+    <h4>Network Defense</h4>
+    <p>Cisco Networking Academy</p>
+  </div>
+    <div class="badge-card">
+    <img src="{% static 'media/a7.png' %}" alt="LeetCode Badge">
+    <h4>System Safeguards</h4>
+    <p>Cisco Networking Academy</p>
+  </div>
+    <div class="badge-card">
+    <img src="{% static 'media/a8.png' %}" alt="LeetCode Badge">
+    <h4>Cybersecurity Administration</h4>
+    <p>Cisco Networking Academy</p>
+  </div>
+</div>
+  </section>
+
+  <footer class="footer">
+    <p>© 2025 Soham Kholapure – Designed with 😎</p>
+  </footer>
+</body>
+</html>

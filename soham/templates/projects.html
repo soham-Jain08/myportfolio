@@ -1,0 +1,308 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Soham | Projects</title>
+  <style>
+    :root {
+  --bg-dark: #0f0f1f;
+  --text-color: #fff;
+  --accent: #8b5cf6;
+  --glass: rgba(255, 255, 255, 0.08);
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg-dark);
+  color: var(--text-color);
+  overflow-x: hidden;
+}
+
+.blob {
+  position: fixed;
+  top: -10%;
+  left: -10%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, #8b5cf6, #6366f1);
+  filter: blur(200px);
+  z-index: -1;
+  animation: blobMove 20s infinite alternate ease-in-out;
+}
+
+@keyframes blobMove {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(50vw, 50vh); }
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--glass);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #ffffff22;
+}
+
+.logo {
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+nav a {
+  color: var(--text-color);
+  margin-left: 1.5rem;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+nav a:hover {
+  color: var(--accent);
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+}
+
+.hero-content span {
+  color: var(--accent);
+}
+
+.btn-glow {
+  background: var(--accent);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  margin-top: 1.5rem;
+  display: inline-block;
+  text-decoration: none;
+  box-shadow: 0 0 15px var(--accent);
+  transition: transform 0.3s;
+}
+
+.btn-glow:hover {
+  transform: scale(1.05);
+}
+
+.section {
+  padding: 1rem 2rem;
+  max-width: 1000px;
+  margin: auto;
+  text-align: center;
+}
+
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.skills-container span {
+  background: #1f1f2e;
+  padding: 0.6rem 1.2rem;
+  border-radius: 12px;
+}
+
+.project-cards {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  margin-top: 2rem;
+}
+
+.card {
+  background: var(--glass);
+  backdrop-filter: blur(15px);
+  border: 1px solid #ffffff22;
+  border-radius: 20px;
+  padding: 2rem;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+}
+
+.footer {
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+.project-video {
+  width: 100%;
+  border-radius: 10px;
+  margin-top: 1rem;
+}
+
+.project-links {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.project-links a {
+  background: var(--accent);
+  color: white;
+  padding: 0.4rem 1rem;
+  border-radius: 25px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: background 0.3s;
+}
+
+.project-links a:hover {
+  background: #6d28d9;
+}
+
+.card p{
+  align-items: left;
+  text-align: left;
+}
+  </style>
+  <script>
+    console.log("🚀 Portfolio Loaded");
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Floating Background Blob -->
+  <div class="blob"></div>
+
+  <header class="navbar glass">
+    <div class="logo">⚡ Soham.Kholapure</div>
+    <nav>
+      <a href="{% url 'home' %}">Home</a>
+      <a href="{% url 'skills' %}">Skills</a>
+      <a href="{% url 'certifications' %}">Certifications</a>
+      <a href="{% url 'projects' %}">Projects</a>
+      <a href="{% url 'contact' %}">Contact</a>
+    </nav>
+  </header>
+
+  <section class="section projects" id="projects">
+    <h2>🔥 Projects</h2>
+    <div class="card" data-tilt>
+    <h3>🏥 Hospital Management System (Reception Module)</h3>
+    <video controls class="project-video">
+      <source src="{% static 'media/hospital.mp4' %}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <p>
+Built a Flask-based web application to streamline receptionist tasks in hospitals and clinics.
+
+<br><br>🔧 Tech Stack: Flask, SQLite3, HTML, CSS, JavaScript
+<br><br>✨ Key Features:
+<br>Secure receptionist login & profile management
+<br>Appointment booking with status tracking (checkup, follow-up, emergency)
+<br>Payment module with mode-wise tracking and auto totals
+<br>Filtered views by date, category, and payment type
+<br>Emergency contact access
+<br>Real-time database (SQLite) for efficient record handling
+<br><br>
+💡 Impact:
+Replaced manual registers and WhatsApp workflows with a responsive, centralized system — improving speed, accuracy, and emergency readiness.</p>
+    <div class="project-links">
+      <a href="https://github.com/soham-Jain08/HospitalManagement" target="_blank">GitHub</a>
+      <a href="https://www.linkedin.com/posts/soham-kholapure-b97443319_flask-webdevelopment-python-activity-7328354956862763008-v3hb?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFCwXuMBHu4tZ9ZebBNSkUe54pZFEK77jOc" target="_blank">LinkedIn</a>
+      <a href="https://www.figma.com/design/8XpH4Bbjuyle6MNGbPVBeK/Untitled?t=IbjEUgdMMY0ptYzJ-1" target="_blank">Figma</a>
+    </div>
+  </div>
+
+        <div class="card" data-tilt>
+    <h3>☕ Coffee Shop Website</h3>
+    <!-- <video controls class="project-video">
+      <source src="{% static 'media/hospital.mp4' %}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video> -->
+    <p>
+Developed a fully responsive website for a coffee shop using HTML, CSS, and JavaScript.
+<br><br>✨ Key Features:
+<br>Engaging About section showcasing the brand story
+<br>Interactive Menu with stylish item display
+<br>Testimonials to build customer trust
+<br>Integrated Contact Form for easy communication
+
+<br><br>
+💡 Outcome:
+Created a visually appealing, user-friendly platform to enhance customer engagement and digital presence.</p>
+    <div class="project-links">
+      <a href="https://github.com/soham-Jain08/Coffee_shop_website" target="_blank">GitHub</a>
+      <a href="https://www.linkedin.com/posts/soham-kholapure-b97443319_webdevelopment-html-css-activity-7279560306379354112-Hfip?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFCwXuMBHu4tZ9ZebBNSkUe54pZFEK77jOc" target="_blank">LinkedIn</a>
+    </div>
+</div>
+
+        <div class="card" data-tilt>
+    <h3>📱 QR Code Generator</h3>
+    <!-- <video controls class="project-video">
+      <source src="{% static 'media/hospital.mp4' %}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video> -->
+    <p>
+Built a fast, responsive QR code generator using HTML, CSS, and JavaScript.
+<br><br>✨ Key Features:
+<br>Clean and user-friendly UI
+<br>Instant QR code generation for text/URLs
+<br>Integrated with a dynamic QR API
+
+<br><br>
+💡 Outcome:
+Enhanced front-end skills and API integration experience through a practical utility tool.</p>
+    <div class="project-links">
+      <a href="https://github.com/soham-Jain08/QR-code-generator" target="_blank">GitHub</a>
+      <a href="https://www.linkedin.com/posts/soham-kholapure-b97443319_qrcodegenerator-webdevelopment-html-activity-7277263123382689792-eCWm?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFCwXuMBHu4tZ9ZebBNSkUe54pZFEK77jOc" target="_blank">LinkedIn</a>
+    </div>
+</div>
+
+        <div class="card" data-tilt>
+    <h3>📝 To-Do List Web App</h3>
+    <!-- <video controls class="project-video">
+      <source src="{% static 'media/hospital.mp4' %}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video> -->
+    <p>
+My first web project using HTML, CSS, and JavaScript to manage daily tasks.
+<br><br>✨ Key Features:
+<br>Add, mark ✅, and delete tasks
+<br>Strikethrough for completed items
+<br>Error alert for empty input
+
+<br><br>
+💡 Outcome:
+Kickstarted my front-end journey by understanding how HTML, CSS & JS integrate in real-world UIs.</p>
+    <div class="project-links">
+       <a href="https://www.linkedin.com/posts/soham-kholapure-b97443319_javascript-learning-firstproject-activity-7275796981464109056-ZnPY?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFCwXuMBHu4tZ9ZebBNSkUe54pZFEK77jOc" target="_blank">LinkedIn</a>
+</div>
+
+</div>
+
+  </section>
+
+  <footer class="footer">
+    <p>© 2025 Soham Kholapure – Designed with 😎</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,243 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Soham | Home</title>
+  <style>
+    :root {
+  --bg-dark: #0f0f1f;
+  --text-color: #fff;
+  --accent: #8b5cf6;
+  --glass: rgba(255, 255, 255, 0.08);
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg-dark);
+  color: var(--text-color);
+  overflow-x: hidden;
+}
+
+.blob {
+  position: fixed;
+  top: -10%;
+  left: -10%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, #8b5cf6, #6366f1);
+  filter: blur(200px);
+  z-index: -1;
+  animation: blobMove 20s infinite alternate ease-in-out;
+}
+
+@keyframes blobMove {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(50vw, 50vh); }
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--glass);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #ffffff22;
+}
+
+.logo {
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+nav a {
+  color: var(--text-color);
+  margin-left: 1.5rem;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+nav a:hover {
+  color: var(--accent);
+}
+
+.hero {
+  min-height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem;
+  flex-wrap: wrap;
+  gap: 0rem;
+}
+
+.hero-content {
+  flex: 1;
+  min-width: 300px;
+}
+
+.hero-img {
+  flex: 1;
+  min-width: 250px;
+  display: flex;
+  justify-content: right;
+  align-items: right;
+  margin-right: 2rem;
+}
+
+.hero-img img {
+  width: 400px;
+  height: 500px;
+  /* object-fit: cover;
+  border-radius: 50%; */
+  /* border: 4px solid #8b5cf6;
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.4); */
+}
+
+.btn-glow {
+  background: var(--accent);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  margin-top: 1.5rem;
+  display: inline-block;
+  text-decoration: none;
+  box-shadow: 0 0 15px var(--accent);
+  transition: transform 0.3s;
+}
+
+.btn-glow:hover {
+  transform: scale(1.05);
+}
+.hero-content h1 {
+  font-size: 3rem;
+}
+
+
+.section {
+  padding: 1rem 2rem;
+  max-width: 1000px;
+  margin: auto;
+  text-align: center;
+}
+
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.skills-container span {
+  background: #1f1f2e;
+  padding: 0.6rem 1.2rem;
+  border-radius: 12px;
+}
+
+.project-cards {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  margin-top: 2rem;
+}
+
+.card {
+  background: var(--glass);
+  backdrop-filter: blur(15px);
+  border: 1px solid #ffffff22;
+  border-radius: 20px;
+  padding: 2rem;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+}
+
+.footer {
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+  </style>
+  <script>
+    console.log("🚀 Portfolio Loaded");
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Floating Background Blob -->
+  <div class="blob"></div>
+
+  <header class="navbar glass">
+    <div class="logo">⚡ Soham.Kholapure</div>
+    <nav>
+      <a href="{% url 'home' %}">Home</a>
+      <a href="{% url 'skills' %}">Skills</a>
+      <a href="{% url 'certifications' %}">Certifications</a>
+      <a href="{% url 'projects' %}">Projects</a>
+      <a href="{% url 'contact' %}">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <h1>Hello👋,<br> I’m Soham Kholapure</h1>
+      <h2> Student of Third Year Computer Engineering</h2>
+      <a class="btn-glow" href="{% static 'media/SohamKholapure_resume.pdf' %}">🚀 My Resume</a>
+    </div>
+    <div class="hero-img">
+        <img src="{% static 'media/nphoto.png' %}" alt="photo">
+    </div>
+  </section>
+
+  <section class="section about" id="about">
+    <h2>🧠 About Me</h2>
+    <p>Computer Engineering student with practical experience in building web applications using HTML, CSS,
+        JavaScript, Django, and Flask. Completed several academic and personal projects such as an online job
+        portal, hospital management system, and QR code generator. Gained exposure to UI/UX design and
+        cybersecurity through workshops and certifications, with familiarity in using Figma for wireframing and
+        prototyping. Interested in developing user-friendly digital solutions and open to learning new tools and
+        technologies.</p>
+  </section>
+
+  <section class="section projects" id="projects">
+    <h2>🎓 Education</h2>
+    <div class="project-cards">
+      <div class="card" data-tilt>
+        <h3>BTech in Computer Engineering </h3>
+        <p>Vidyalankar Institute of Technology, Wadala
+            <br> CGPI - 9.71 <br> Affiliated to University of
+ Mumbai
+ 2023 - 2027 
+        </p>
+      </div>
+      <div class="card" data-tilt>
+        <h3>Higher Secondary Certificate (HSC)</h3>
+        <p>St. Andrew’s International School & Jr. College, Akurli 
+            <br> Percentage - 73.50% <br> St <br> 2022 - 2023</p>
+      </div>
+      <div class="card" data-tilt>
+        <h3> Secondary School Examination</h3>
+        <p> D.A.V. Public School, New Panvel
+            <br> Percentage - 87.20% <br> 2020 - 2021</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© 2025 Soham Kholapure – Designed with 😎</p>
+  </footer>
+</body>
+</html>

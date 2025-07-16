@@ -1,0 +1,250 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Soham | Certifications</title>
+  <style>
+    :root {
+  --bg-dark: #0f0f1f;
+  --text-color: #fff;
+  --accent: #8b5cf6;
+  --glass: rgba(255, 255, 255, 0.08);
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg-dark);
+  color: var(--text-color);
+  overflow-x: hidden;
+}
+
+.blob {
+  position: fixed;
+  top: -10%;
+  left: -10%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, #8b5cf6, #6366f1);
+  filter: blur(200px);
+  z-index: -1;
+  animation: blobMove 20s infinite alternate ease-in-out;
+}
+
+@keyframes blobMove {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(50vw, 50vh); }
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--glass);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #ffffff22;
+}
+
+.logo {
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+nav a {
+  color: var(--text-color);
+  margin-left: 1.5rem;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+nav a:hover {
+  color: var(--accent);
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+}
+
+.hero-content span {
+  color: var(--accent);
+}
+
+.btn-glow {
+  background: var(--accent);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  margin-top: 1.5rem;
+  display: inline-block;
+  text-decoration: none;
+  box-shadow: 0 0 15px var(--accent);
+  transition: transform 0.3s;
+}
+
+.btn-glow:hover {
+  transform: scale(1.05);
+}
+
+.section {
+  padding: 1rem 2rem;
+  max-width: 1000px;
+  margin: auto;
+  text-align: center;
+}
+
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.skills-container span {
+  background: #1f1f2e;
+  padding: 0.6rem 1.2rem;
+  border-radius: 12px;
+}
+
+.project-cards {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  margin-top: 2rem;
+}
+
+.card {
+  background: var(--glass);
+  backdrop-filter: blur(15px);
+  border: 1px solid #ffffff22;
+  border-radius: 20px;
+  padding: 2.5rem;
+  transition: 0.3s;
+  cursor: pointer;
+  min-width: 400px;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+}
+
+.footer {
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+  </style>
+  <script>
+    console.log("🚀 Portfolio Loaded");
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Floating Background Blob -->
+  <div class="blob"></div>
+
+<header class="navbar glass">
+    <div class="logo">⚡ Soham.Kholapure</div>
+    <nav>
+      <a href="{% url 'home' %}">Home</a>
+      <a href="{% url 'skills' %}">Skills</a>
+      <a href="{% url 'certifications' %}">Certifications</a>
+      <a href="{% url 'projects' %}">Projects</a>
+      <a href="{% url 'contact' %}">Contact</a>
+    </nav>
+</header>
+  <section class="section projects" id="projects">
+    <h2>💡 Certifications</h2>
+    <div class="project-cards">
+      <div class="card" data-tilt>
+        <img src="{% static 'media/acc.png' %}" alt="Certificate">
+        <h3>User Experience (UX) Design</h3>
+        <p>Accenture <br>6 hrs | 25 Jun 2025 </p>
+      </div>
+      <div class="card" data-tilt>
+        <img src="{% static 'media/lnt.png' %}" alt="Certificate">
+        <h3>Full Stack Web Development</h3>
+        <p>L&T Skill Trainers Academy <br>60 hrs (Residential) | 9-14 Jun 2025</p>
+      </div>
+      <div class="card" data-tilt>
+        <img src="{% static 'media/scaler.png' %}" alt="Certificate">
+        <h3>Learn Fundamentals of Operating System</h3>
+        <p>Scaler <br> 25 Jan 2025</p>
+      </div>
+      <div class="card" data-tilt>
+        <img src="{% static 'media/gdg.png' %}" alt="Certificate">
+        <h3>UI/UX Workshop</h3>
+        <p>Google Developers Group VIT x Friends of Figma 
+            <br>3hrs | 24 Jan 2025</p>
+      </div>
+      <div class="card" data-tilt>
+        <img src="{% static 'media/cisco1.png' %}" alt="Certificate">
+        <h3>Cyber Threat Management</h3>
+        <p>Cisco Networking Academy <br>16hrs | 17 Jan 2025</p>
+      </div>
+      <div class="card" data-tilt>
+        <img src="{% static 'media/cisco2.png' %}" alt="Certificate">
+        <h3>Introduction to Cybersecurity </h3>
+        <p>Cisco Networking Academy <br>6hrs | 6 Jan 2025</p>
+      </div>
+      <div class="card" data-tilt>
+        <img src="{% static 'media/mahindra.png' %}" alt="Certificate">
+        <h3>Cybersecurity </h3>
+        <p>Tech Mahindra Foundation <br>10hrs | 1 Jan 2025</p>
+      </div>
+      <div class="card" data-tilt>
+        <img src="{% static 'media/nptel.png' %}" alt="Certificate">
+        <h3>Cyber Security and Privacy</h3>
+        <p>NPTEL Online Certification <br>12 weeks | Jul-Oct 2024</p>
+      </div>
+      <div class="card" data-tilt>
+        <img src="{% static 'media/itsa.png' %}" alt="Certificate">
+        <h3>GitHub Mastery</h3>
+        <p>ITSA - VIT<br>4hrs | 20 Oct 2024</p>
+      </div>
+      <div class="card" data-tilt>
+        <img src="{% static 'media/nosql.png' %}" alt="Certificate">
+        <h3>NoSQL Database</h3>
+        <p>Great learning<br>3hrs | Oct 2024</p>
+      </div>
+      <div class="card" data-tilt>
+        <img src="{% static 'media/cyberfrat.png' %}" alt="Certificate">
+        <h3>Cybersecurity National Symposium</h3>
+        <p>CyberFrat<br>6hrs | 5 Oct 2024</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© 2025 Soham Kholapure – Designed with 😎</p>
+  </footer>
+</body>
+</html>
