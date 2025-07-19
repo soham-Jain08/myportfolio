@@ -1,4 +1,4 @@
-{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -171,9 +171,6 @@ nav a:hover {
 }
 
   </style>
-  <script>
-    console.log("🚀 Portfolio Loaded");
-  </script>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -181,7 +178,7 @@ nav a:hover {
   <div class="blob"></div>
 
   <header class="navbar glass">
-    <div class="logo">⚡ Soham.Kholapure</div>
+    <div class="logo">Soham.Kholapure</div>
     <nav>
       <a href="{% url 'home' %}">Home</a>
       <a href="{% url 'skills' %}">Skills</a>
@@ -198,7 +195,7 @@ nav a:hover {
       <a class="btn-glow" href="{% static 'media/SohamKholapure_resume.pdf' %}">🚀 My Resume</a>
     </div>
     <div class="hero-img">
-        <img src="{% static 'media/nphoto.png' %}" alt="photo">
+        <img src="https://res.cloudinary.com/daz2pyisr/image/upload/v1752903579/nphoto_u9h4ax.png" alt="photo">
     </div>
   </section>
 
